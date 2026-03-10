@@ -3,7 +3,7 @@
 #================================
 #     MATEMÁTICA ALGORÍTMICA
 #      MODELOS ESTOCÁSTICOS
-#  ESFM IPN        FEBRERO 2026
+#  ESFM IPN         MARZO 2026
 #================================
 #  Dada una distribución inicial, y la matriz de transición P,  basado en el juego del tablero de 4 colores
 #       Grafica N pasos
