@@ -16,35 +16,42 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# [Azul, Naranja, Rojo, Verde]
+colores = ['A', 'N', 'R', 'V']
+
+
 #  Se pide al usuario llenar la matriz de 4x4, y posteriormente dar el vector de distribución inicial
 
 print(f"===========================================================================")
 print("CAMINATA ALEATORIA EN EL TABLERO: Azul, Naranja, Rojo, Verde.\n")
-print("Por favor, ingrese los valores deseados para la matriz de transición P de 4x4")
+print("Por favor, ingrese los valores deseados para la matriz de transición de 4x4")
+print("de tal manera que sumados, den 1; separado por comas (ej, 0.5 0.0 0.4 0.1)")
 
-print("Ahora, ingrese el vector de distribución inicial de 1x4")
-
-
-#  Definimos la matriz de transición P, en donde las columnas representan el color actual y las filas la siguiente.
-# [Azul, Naranja, Rojo, Verde]
-
-P = np.array ([[0.25, 0.00, 0.25, 0.50],
-               [0.50, 0.25, 0.00, 0.25],
-               [0.25, 0.50, 0.25, 0.00],
-               [0.00, 0.25, 0.50, 0.25]])
-
-
-colores = ['A', 'N', 'R', 'V']
+P_lista = []
+for i in range(4):
+    entrada_fila = input(f"Probabiidades de salto desde {colores[i]}: ")
+    fila = [float(x) for x in entrada_fila.split()]
+    P_lista.append(fila)
+P = np.array(P_lista)
 n = 100
-
-
-#  Aquí se muestra al usuario el vector de valores iniciales para los estados.
-
-a = np.array([0.25, 0.25, 0.25, 0.25])
 print(f"===========================================================================")
-print(f"          Tu vector de valores iniciales es: {a}")
-print(f"===========================================================================\n")
+print("Ahora, ingrese el vector de distribución inicial de 1x4, separado por comas y que sumen 1.")
+entrada_a = input("VECTOR INICIAL: ")
+a = np.array([float(x) for x in entrada_a.split()])
+
+
+#  Aquí se muestra al usuario el vector de valores iniciales para los estados, junto con la matriz de transición dada.
+
+print(f"===========================================================================")
+print(f"                 Tu vector de valores iniciales es:")
+print(f"                       {a}")
+print(f"===========================================================================")
+print(f"                    Tu matriz de transición es:")
+print(f"{P}")
+print(f"===========================================================================")
 print(f"    Considere: A = Azul, N = Naranja, R = Rojo, V = Verde")
+
+
 X = []  # X Guarda el camino
 
 
