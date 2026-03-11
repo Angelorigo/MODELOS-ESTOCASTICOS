@@ -16,6 +16,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+#  Se pide al usuario llenar la matriz de 4x4, y posteriormente dar el vector de distribución inicial
+
+print(f"===========================================================================")
+print("CAMINATA ALEATORIA EN EL TABLERO: Azul, Naranja, Rojo, Verde.\n")
+print("Por favor, ingrese los valores deseados para la matriz de transición P de 4x4")
+
+print("Ahora, ingrese el vector de distribución inicial de 1x4")
+
+
 #  Definimos la matriz de transición P, en donde las columnas representan el color actual y las filas la siguiente.
 # [Azul, Naranja, Rojo, Verde]
 
