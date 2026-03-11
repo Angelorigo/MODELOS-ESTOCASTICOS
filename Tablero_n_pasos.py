@@ -15,6 +15,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 #  Definimos la matriz de transición P, en donde las columnas representan el color actual y las filas la siguiente.
 # [Azul, Naranja, Rojo, Verde]
 
@@ -25,7 +26,8 @@ P = np.array ([[0.25, 0.00, 0.25, 0.50],
 
 
 colores = ['A', 'N', 'R', 'V']
-n = 20
+n = 100
+
 
 #  Aquí se muestra al usuario el vector de valores iniciales para los estados.
 
@@ -36,10 +38,12 @@ print(f"========================================================================
 print(f"    Considere: A = Azul, N = Naranja, R = Rojo, V = Verde")
 X = []  # X Guarda el camino
 
+
 #  Usamos la librería random para escoger entre los 4 colores
 
 X_0 = np.random.choice([0, 1, 2, 3], p = a)
 X.append(X_0)
+
 
 #  Cálculo de la probabilidad acumulada, iniciando en X_0
 
@@ -62,13 +66,26 @@ camino = [colores[estado] for estado in X]
 
 
 #  IMPRESIÓN DE RESULTADOS
+
 print(f"\n===========================================================================") 
 print(f"La trayectoria fue:\n{' -> '.join(camino)}")
 print(f"===========================================================================")
 print(f"Probabilidad de llegar a este evento, dado el camino anterior: {PA:.20f}")
 print(f"===========================================================================")
 
+
+#  Cuántas veces estuvo el valor en cada color del tablero?
+
+print("---------------------------------------------------------------------------")
+print("PORCENTAJES:\n")
+for i in range(4):
+    visita = X.count(i)
+    porcentaje = (visita / len(X)) * 100
+    print(f"{colores[i]}: Cayó {visita} veces ({porcentaje:.2f}%)")
+print("---------------------------------------------------------------------------")
+
 #  GRAFICACIÓN
+
 plt.figure(figsize=(10, 5))
 plt.step(range(n+1), X, where = 'post', marker = 'o', color = 'crimson', linewidth = 2)
 plt.yticks([0, 1, 2, 3], colores)
