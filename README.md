@@ -1,4 +1,6 @@
 CURSO DE MODELOS ESTOCÁSTICOS 2026
 
 
-(cambié de laptop, entonces hoy 23/02/2026 que hice un nuevo commit, me acutalizó todo)
+Las fechas de los commits se verán muy recientes, pero se hizo un renombre a todos los archivos para una mejor visualización.
+
+En caso de querer verificar las fechas de creación, se le invita a ver el historial de commits en la branch main.
