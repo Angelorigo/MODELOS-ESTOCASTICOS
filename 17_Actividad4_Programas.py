@@ -7,7 +7,8 @@
 #================================
 #  Hola, en este programa se ejecutarán
 #  los 5 códigos para las distintas distribuciones
-#  contenidas en la actividad 4.
+#  contenidas en la actividad 4, lo cual grafica
+#  histogramas e imprime media, varianza y DE.
 #================================
 
 import random as rnd
@@ -15,9 +16,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# =====================================================
-# 1) WEIBULL We(alpha,1)
-# =====================================================
+#=====================================================
+#  1) WEIBULL We(alpha,1)
+#=====================================================
+
 def weibull(alpha, n):
     muestra = []
     for i in range(n):
@@ -27,10 +29,9 @@ def weibull(alpha, n):
     return muestra
 
 
-
-# =====================================================
-# 2) GUMBEL Gu(0,1)
-# =====================================================
+#=====================================================
+#  2) GUMBEL Gu(0,1)
+#=====================================================
 
 def gumbel(n):
     muestra = []
@@ -41,9 +42,10 @@ def gumbel(n):
     return muestra
 
 
-# =====================================================
-# 3) CAUCHY C(0,1)
-# =====================================================
+#=====================================================
+#  3) CAUCHY C(0,1)
+#=====================================================
+
 def cauchy(n):
     muestra = []
     for i in range(n):
@@ -53,9 +55,9 @@ def cauchy(n):
     return muestra
 
 
-# =====================================================
-# 4) LAPLACE L(0,1)
-# =====================================================
+#=====================================================
+#  4) LAPLACE L(0,1)
+#=====================================================
 
 def laplace(n):
     muestra = []
@@ -69,9 +71,10 @@ def laplace(n):
     return muestra
 
 
-# =====================================================
-# 5) PARETO Par(alpha)
-# =====================================================
+#=====================================================
+#  5) PARETO Par(alpha)
+#=====================================================
+
 def pareto(alpha, n):
     muestra = []
     for i in range(n):
@@ -82,9 +85,13 @@ def pareto(alpha, n):
 
 
 #  PARÁMETROS
+
 n = 1000
 alpha = 2 
+
+
 #  MUESTRAS
+
 m_weibull = weibull(alpha, n)
 m_gumbel = gumbel(n)
 m_cauchy = cauchy(n)
@@ -92,9 +99,19 @@ m_laplace = laplace(n)
 m_pareto = pareto(alpha, n)
 
 
-# =====================================================
-# HISTOGRAMA WEIBULL
-# =====================================================
+#=====================================================
+#  ESTADÍSTICAS
+#=====================================================
+
+print("\n--- ESTADÍSTICAS ---")
+print(f"Weibull -> Media: {np.mean(m_weibull):.4f}, Varianza: {np.var(m_weibull, ddof=1):.4f}, Desv. Est: {np.std(m_weibull, ddof=1):.4f}")
+print(f"Gumbel  -> Media: {np.mean(m_gumbel):.4f}, Varianza: {np.var(m_gumbel, ddof=1):.4f}, Desv. Est: {np.std(m_gumbel, ddof=1):.4f}")
+print(f"Laplace -> Media: {np.mean(m_laplace):.4f}, Varianza: {np.var(m_laplace, ddof=1):.4f}, Desv. Est: {np.std(m_laplace, ddof=1):.4f}\n")
+
+
+#=====================================================
+#  HISTOGRAMA WEIBULL
+#=====================================================
 
 plt.figure(figsize=(7,5))
 plt.hist(m_weibull, bins=40, density=True)
@@ -105,9 +122,9 @@ plt.grid()
 plt.show()
 
 
-# =====================================================
-# HISTOGRAMA GUMBEL
-# =====================================================
+#=====================================================
+#  HISTOGRAMA GUMBEL
+#=====================================================
 
 plt.figure(figsize=(7,5))
 plt.hist(m_gumbel, bins=40, density=True)
@@ -118,9 +135,9 @@ plt.grid()
 plt.show()
 
 
-# =====================================================
-# HISTOGRAMA CAUCHY
-# =====================================================
+#=====================================================
+#  HISTOGRAMA CAUCHY
+#=====================================================
 
 plt.figure(figsize=(7,5))
 plt.hist(m_cauchy, bins=100, density=True)
@@ -132,9 +149,9 @@ plt.grid()
 plt.show()
 
 
-# =====================================================
-# HISTOGRAMA LAPLACE
-# =====================================================
+#=====================================================
+#  HISTOGRAMA LAPLACE
+#=====================================================
 
 plt.figure(figsize=(7,5))
 plt.hist(m_laplace, bins=40, density=True)
@@ -145,9 +162,9 @@ plt.grid()
 plt.show()
 
 
-# =====================================================
-# HISTOGRAMA PARETO
-# =====================================================
+#=====================================================
+#  HISTOGRAMA PARETO
+#=====================================================
 
 plt.figure(figsize=(7,5))
 plt.hist(m_pareto, bins=40, density=True)
